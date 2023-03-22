@@ -1,6 +1,7 @@
 const { productsModel } = require('../models');
 
 const httpGenerator = (status, message) => ({ status, message }); 
+
 const findAll = async () => {
   const products = await productsModel.findAll();
   return products;
@@ -12,7 +13,13 @@ const findById = async (id) => {
   return product;
 };
 
+const createProduct = async ({ name }) => {
+  const id = await productsModel.create({ name });
+  return { id, name };
+};
+
 module.exports = {
   findAll,
   findById,
+  createProduct,
 };
