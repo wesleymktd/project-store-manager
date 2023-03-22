@@ -1,9 +1,9 @@
 const { productsService } = require('../services');
 
 const listProducts = async (_req, res) => {
-  const  allProducts  = await productsService.findAll();
+  const allProducts = await productsService.findAll();
   res.status(200).json(allProducts);
-}
+};
 
 const getProduct = async (req, res, next) => {
   try {
@@ -13,9 +13,9 @@ const getProduct = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-}
+};
 
 module.exports = {
   listProducts,
   getProduct,
-}
+};

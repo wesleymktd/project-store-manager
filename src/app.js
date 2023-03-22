@@ -6,9 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/products', productsRouter)
-
-
+app.use('/products', productsRouter);
 
 // não remova esse endpoint, é para o avaliador funcionarr
 app.get('/', (_request, response) => {
