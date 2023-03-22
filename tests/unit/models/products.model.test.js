@@ -13,5 +13,18 @@ describe('teste unitário da camada model products', function () {
     const result = await productsModel.findAll();
     // Assert
     expect(result).to.be.equal(allProducts);
-  })  
+  });
+  
+  it('Recuperando um produto a partir do seu id', async function () {
+    // Arrange
+    sinon.stub(connection, 'execute').resolves([[allProducts[0]]]);
+    // Act
+    const result = await productsModel.findById(1);
+    // Assert
+    expect(result).to.be.equal(allProducts[0]);
+  });
+
+  afterEach(function () {
+    sinon.restore();
+  })
 })
