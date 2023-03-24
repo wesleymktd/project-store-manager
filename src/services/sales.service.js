@@ -2,6 +2,17 @@ const { salesModel, productsModel } = require('../models');
 
 const httpGenerator = (status, message) => ({ status, message }); 
 
+const findAllSales = async () => {
+  const sales = await salesModel.findAllSales();
+  return sales;
+};
+
+const findSaleById = async (id) => {
+  const sale = await salesModel.findSaleById(id);
+  if (sale.length === 0) throw httpGenerator(404, 'Sale not found');
+  return sale;
+};
+
 const createNewSale = async (sale) => {
   const products = await Promise.all(sale.map(({ productId }) =>
     productsModel.findById(productId)));
@@ -16,4 +27,6 @@ const createNewSale = async (sale) => {
 
 module.exports = {
   createNewSale,
+  findAllSales,
+  findSaleById,
 };

@@ -1,5 +1,20 @@
 const { salesService } = require('../services');
 
+const listAllSales = async (_req, res) => {
+  const allSales = await salesService.findAllSales();
+  res.status(200).json(allSales);
+};
+
+const getSale = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const sale = await salesService.findSaleById(id);
+    res.status(200).json(sale);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const createNewSale = async (req, res, next) => {
   try {
     const sale = req.body;
@@ -12,4 +27,6 @@ const createNewSale = async (req, res, next) => {
 
 module.exports = {
   createNewSale,
+  listAllSales,
+  getSale,
 };

@@ -5,9 +5,9 @@ const router = express.Router();
 const { salesController } = require('../controllers'); 
 const validateSaleInput = require('../middlewares/validateSaleInputValue');
 
-// router.get('/', productsController.listProducts);
+router.get('/', salesController.listAllSales);
 
-// router.get('/:id', productsController.getProduct);
+router.get('/:id', salesController.getSale);
 
 router.post('/',
   validateSaleInput,
