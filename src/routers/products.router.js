@@ -9,6 +9,10 @@ router.get('/', productsController.listProducts);
 
 router.get('/:id', productsController.getProduct);
 
+router.put('/:id',
+  validateNameInput,
+  productsController.updateProduct);
+
 router.post('/',
   validateNameInput,
   productsController.createProduct);
