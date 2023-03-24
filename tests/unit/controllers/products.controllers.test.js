@@ -22,7 +22,7 @@ describe('teste unitário da camada controller products', function () {
     sinon
       .stub(productsService, 'findAll').resolves(allProducts);
     // Act
-    const result = await productsController.listProducts(req, res);
+    await productsController.listProducts(req, res);
     // Assert
     expect(res.status).to.have.been.calledWith(200);
     expect(res.json).to.have.been.calledWith(allProducts);
