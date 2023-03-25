@@ -130,16 +130,16 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:3001/products/9",
-    "url": "localhost:3001/products/",
-    "method": "POST",
+    "url": "localhost:3001/sales/1",
+    "method": "PUT",
     "sortNum": 0,
     "created": "2023-03-22T09:52:28.480Z",
-    "modified": "2023-03-23T12:51:38.334Z",
+    "modified": "2023-03-25T17:00:58.407Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Xablau phone 10\"\n}",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 200\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 300\n  }\n]",
       "form": []
     },
     "tests": []

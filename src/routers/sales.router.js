@@ -15,4 +15,8 @@ router.post('/',
 
 router.delete('/:id', salesController.deleteSale);
 
+router.put('/:id',
+  validateSaleInput,
+  salesController.updateSale);
+
 module.exports = router;

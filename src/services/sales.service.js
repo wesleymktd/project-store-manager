@@ -31,9 +31,26 @@ const deleteSale = async (id) => {
   await salesModel.deleteSale(id);
 };
 
+const updateSale = async (sale, id) => {
+  const saleFind = await salesModel.findSaleByIdOnly(id);
+  if (!saleFind) throw httpGenerator(404, 'Sale not found');
+
+  const productFind = await Promise.all(sale.map(({ productId }) =>
+    productsModel.findById(productId)));
+  
+  if (productFind.includes(undefined)) {
+    throw httpGenerator(404, 'Product not found');
+  }
+
+  const returnSale = await salesModel.updateSale(sale, id);
+  
+  return returnSale;
+};
+
 module.exports = {
   createNewSale,
   findAllSales,
   findSaleById,
   deleteSale,
+  updateSale,
 };
