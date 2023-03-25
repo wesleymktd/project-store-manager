@@ -47,8 +47,25 @@ const insertNewSale = async (sale) => {
   };    
 };
 
+const findSaleByIdOnly = async (id) => {
+  const [[result]] = await connection.execute(
+    'SELECT * FROM sales WHERE id = ?',
+    [id],
+  );
+  return result;
+};
+
+const deleteSale = async (id) => {
+  await connection.execute(
+    'DELETE from sales WHERE id = ?',
+    [id],
+  );
+}; 
+
 module.exports = {
   insertNewSale,
   findAllSales,
   findSaleById,
+  deleteSale,
+  findSaleByIdOnly,
 };

@@ -25,8 +25,15 @@ const createNewSale = async (sale) => {
   return registerSale;
 };
 
+const deleteSale = async (id) => {
+  const sale = await salesModel.findSaleByIdOnly(id);
+  if (!sale) throw httpGenerator(404, 'Sale not found');
+  await salesModel.deleteSale(id);
+};
+
 module.exports = {
   createNewSale,
   findAllSales,
   findSaleById,
+  deleteSale,
 };
