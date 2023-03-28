@@ -9,7 +9,7 @@ chai.use(require('chai-as-promised'));
 const { productsService } = require('../../../src/services');
 
 const { productsController } = require('../../../src/controllers');
-const { allProducts, returnValidProduct, productEntry } = require('../models/mocks/products.model.mock');
+const { allProducts, returnValidProduct, productEntry, searchProductResult } = require('../models/mocks/products.model.mock');
 
 describe('teste unitário da camada controller products', function () {
   it('Deve retornar o status 200 e a lista', async function () {
@@ -161,6 +161,25 @@ describe('teste unitário da camada controller products', function () {
 
     await expect(productsController.deleteProduct(req, res)).to.be.rejectedWith(err);
     
+  })
+
+  it('Testando função getProductSearch', async function () {
+    // Arrange
+    const res = {};
+    const req = {
+      query: { q: 'escudo' },
+    };
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon
+      .stub(productsService, 'searchProducts').resolves(searchProductResult);
+    // Act
+    await productsController.getProductSearch(req, res);
+    // Assert
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(searchProductResult);
   })
 
   afterEach(function () {

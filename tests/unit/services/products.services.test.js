@@ -11,7 +11,7 @@ const { productsModel } = require('../../../src/models');
 
 
 const { productsService } = require('../../../src/services');
-const { allProducts, productEntry, returnValidProduct } = require('../models/mocks/products.model.mock');
+const { allProducts, productEntry, returnValidProduct, searchProductResult } = require('../models/mocks/products.model.mock');
 
 describe('teste unitário da camada service products', function () {
   it('Recuperando a lista de todos os produtos', async function () {
@@ -60,7 +60,7 @@ describe('teste unitário da camada service products', function () {
     sinon.stub(productsModel, 'findById').resolves(returnValidProduct);
     // Act
     const result = await productsService.updateById('Xablauzão phone 10', 1);
-    console.log(result)
+    
     // Assert
     expect(result).to.be.deep.equal(returnValidProduct);
     // expect(result.name).to.be.deep.equal('Xablauzão phone 10');
@@ -78,6 +78,17 @@ describe('teste unitário da camada service products', function () {
       expect(error.message).to.be.deep.equal('Product not found')
     }
     // Assert
+  })
+
+  it('testando função searchProducts', async function () {
+    // Arrange
+    sinon.stub(productsModel, 'searchProducts').resolves(searchProductResult);
+    // Act
+    const result = await productsService.searchProducts('escudo');
+    
+    // Assert
+    expect(result).to.be.deep.equal(searchProductResult);
+    // expect(result.name).to.be.deep.equal('Xablauzão phone 10');
   })
   
   afterEach(function () {

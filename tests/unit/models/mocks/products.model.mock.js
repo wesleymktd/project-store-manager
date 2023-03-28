@@ -22,8 +22,16 @@ returnValidProduct = {
   "name": "Xablauzão phone 10"
 }
 
+searchProductResult = [
+  {
+    "id": 3,
+    "name": "Escudo do Capitão América"
+  }
+]
+
 module.exports = {
   allProducts,
   productEntry,
   returnValidProduct,
+  searchProductResult,
 }

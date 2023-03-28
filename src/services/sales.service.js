@@ -35,10 +35,10 @@ const deleteSale = async (id) => {
 const updateSale = async (sale, id) => {
   const saleFind = await salesModel.findSaleByIdOnly(id);
   if (!saleFind) throw httpGenerator(404, 'Sale not found');
-
+  console.log('saleFind', saleFind);
   const productFind = await Promise.all(sale.map(({ productId }) =>
     productsModel.findById(productId)));
-  
+  console.log('productFind', productFind);
   if (productFind.includes(undefined)) {
     throw httpGenerator(404, 'Product not found');
   }

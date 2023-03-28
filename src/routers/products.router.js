@@ -7,6 +7,8 @@ const validateNameInput = require('../middlewares/validateNameInput');
 
 router.get('/', productsController.listProducts);
 
+router.get('/search', productsController.getProductSearch); 
+
 router.get('/:id', productsController.getProduct);
 
 router.put('/:id',
@@ -17,6 +19,6 @@ router.post('/',
   validateNameInput,
   productsController.createProduct);
 
-router.delete('/:id', productsController.deleteProduct);  
+router.delete('/:id', productsController.deleteProduct); 
 
 module.exports = router;
