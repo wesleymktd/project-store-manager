@@ -13,6 +13,17 @@ const allProducts = [
   }
 ]
 
+productEntry = {
+  "name": "Xablauzão phone 10"
+}
+
+returnValidProduct = {
+  "id": 1,
+  "name": "Xablauzão phone 10"
+}
+
 module.exports = {
   allProducts,
+  productEntry,
+  returnValidProduct,
 }

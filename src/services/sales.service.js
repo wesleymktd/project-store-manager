@@ -27,6 +27,7 @@ const createNewSale = async (sale) => {
 
 const deleteSale = async (id) => {
   const sale = await salesModel.findSaleByIdOnly(id);
+  console.log(sale);
   if (!sale) throw httpGenerator(404, 'Sale not found');
   await salesModel.deleteSale(id);
 };
