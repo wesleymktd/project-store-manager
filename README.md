@@ -1,11 +1,8 @@
 ## 🧐 Sobre
 
-<h4 align="left"> 
-	STORE MANAGER, se trata de uma API de sistema de gerenciamento de vendas no formato dropshipping, onde é possível criar, visualizar, deletar e atualizar produtos e vendas. Funcionando 100% na arquitetura MSC, com os devidos testes aplicados. Além disso, Foi utilizado nesse projeto o Docker Compose.
+STORE MANAGER, se trata de uma API de sistema de gerenciamento de vendas no formato dropshipping, onde é possível criar, visualizar, deletar e atualizar produtos e vendas. Funcionando 100% na arquitetura MSC, com os devidos testes aplicados. Além disso, Foi utilizado nesse projeto o Docker Compose.
   
-</h4>
-<br>
-<strong> ## ⚒ Instalando </strong><a name = "installing"></a>
+## ⚒ Instalando 
 <details>
  
   <summary><strong>🐋 Rodando no Docker vs Localmente</strong></summary>
@@ -48,3 +45,15 @@
       - **✨ Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o `node` instalado em seu computador.
    <br/>
 </details>
+
+## Principais tecnologias utilizadas:
+
+- Docker;
+- JavaScript;
+- Node.js;
+- Express;
+- MySql.
+
+## Contribuição
+
+Fiz o src e a pasta de testes e todo o conteudo dentro dela. Os outros arquivos foram feitos pela Trybe.
